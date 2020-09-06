@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Telepath Web</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Aymerik ABOSO ; Master 1 MIAGE ; 2016 - 2017">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../Images/iconeTelepath.ico" />
+	<!-- Icone onglet -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../Perso.css">
+	<!-- UTILISATION DE BOOTSTRAP -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../js/Codes/MooTools.js"></script>
+	<script src="../js/Codes/moteur.js"></script>
+	<script src="../js/Codes/bootbox.min.js"></script>
+</head>
+
+<body onload="init()" style="background-color:#d9edf7">
+	<!--On lance la fonction init() de moteur.js-->
+	<!-- - - - - - - - - - - - - MENU NAVIGATION - - - - - - - - - - - - -->
+	<div class="container">
+		<nav>
+			<br>
+			<br>
+			<div align="center">
+				<img class="img-responsive" src="../Images/logoBig.png" alt="logo">
+			</div>
+			<br>
+			<br>
+			<!-- Première ligne -->
+			<div class="btn-group btn-group-justified">
+				<span style="background-color:#5f9af4" <a href="#" class="btn btn-primary" onclick="laisserSectionVisible('Inscription')"
+				 id="boutonInscription">S'inscrire</a></span>
+				<span style="background-color:#5f9af4" <a href="#" class="btn btn-primary" onclick="laisserSectionVisible('Connexion')" id="boutonConnexion">Se<br>connecter</a></span>
+				<span style="background-color:#5f9af4" <a href="#" class="btn btn-primary" onclick="laisserSectionVisible('ListeAmis')" id="boutonListeAmis">Liste d'amis</a></span>
+			</div>
+			<!-- Deuxième ligne -->
+			<div class="btn-group btn-group-justified">
+				<span style="background-color:#5f9af4" <a href="#" class="btn btn-primary" onclick="laisserSectionVisible('APropos')" id="boutonAPropos">A propos<br>de Télépath</a></span>
+				<span style="background-color:#5f9af4" <a href="#" class="btn btn-primary" onclick="laisserSectionVisible('Discussion')"
+				 id="boutonDiscussion">Discussion</a></span>
+			</div>
+			<br>
+		</nav>
+	</div>
+	<!-- - - - - - - - - - - - - AFFICHAGE DE L'IDENTITE DE L'UTILISATEUR - - - - - - - - - - - - -->
+	<br>
+	<center>
+		<div class="alert alert-success" style="border-color:#000000; width:95%">
+			<font size="4" id="affichageIdentiteUtilisateur">Bonjour noble aventurier(ère) !</font>
+		</div>
+	</center>
+	<!-- - - - - - - - - - - - - SECTIONS LIEES AUX BOUTONS POUR L'INTERFACE - - - - - - - - - - - - -->
+	<!-- INSCRIPTION -->
+	<section id="Inscription">
+		<center>
+			<br>
+			<br>
+			<div style="background-color:#7aaaf4; width:95%; border-color:#000000" class="well">
+				<div class="alert alert-info" style="border-color:#000000">
+					<font size="6">Inscription</font>
+				</div>
+				<br>
+				<img class="img-responsive" src="../Images/logoInscription.png" alt="logo" width="100" height="100">
+				<br>
+				<br>
+				<a href="#informationInscription" class="btn btn-link" data-toggle="collapse" style="font-size:2em"><i>Informations</i></a>
+				<div id="informationInscription" class="collapse">
+					<br><br>
+					<div class="alert alert-danger" style="border-color:#000000; width:60%">
+						<font size="4">
+							<p style="line-height: 2.0">
+								Votre identité peut être un
+								<font size="6">pseudonyme.</font>
+								<br>Il peut contenir des espaces.
+								<br>Si l'inscription n'a pas lieu, cela signifie peut-être que
+								<br>votre identité contient des caractères non autorisés.
+								<br><br>Suite à l'inscription un mail de confirmation vous sera envoyé pour activation du compte.
+								<br>En activant votre compte veuillez faire attention à noter votre identifiant de connexion. Il est représenté par
+								:
+								<br>"identifiant" : "XXXXXXXXXX"
+							</p>
+						</font>
+					</div>
+				</div>
+				<br>
+				<br>
+				<font size="5">Identité</font>
+				<input type="text" class="form-control" style="width:70%" id="InscriptionChampIdentite">
+				<br>
+				<font size="5">Adresse e-mail</font>
+				<input type="text" class="form-control" style="width:70%" id="InscriptionChampAdresseMail">
+				<br><br>
+				<button type="button" class="btn btn-success" style="font-size:2em" onclick="inscription()">S'inscrire</button>
+			</div>
+		</center>
+	</section>
+	<!-- CONNEXION -->
+	<section id="Connexion">
+		<center>
+			<br>
+			<br>
+			<div style="background-color:#7aaaf4; width:95%; border-color:#000000" class="well">
+				<div class="alert alert-info" style="border-color:#000000">
+					<font size="6">Connexion</font>
+				</div>
+				<br>
+				<img class="img-responsive" src="../Images/logoConnexion.png" alt="logo" width="100" height="100">
+				<br>
+				<br>
+				<a href="#informationConnexion" class="btn btn-link" data-toggle="collapse" style="font-size:2em"><i>Informations</i></a>
+				<div id="informationConnexion" class="collapse">
+					<br><br>
+					<div class="alert alert-danger" style="border-color:#000000; width:60%">
+						<font size="4">
+							<p style="line-height: 2.0">
+								Une fois connecté votre identifiant de connexion sera enregistré. Ainsi en revenant sur cette page il sera automatiquement
+								recopié dans le champ.
+							</p>
+							<p style="line-height: 2.0">
+								Le bouton <span class="glyphicon glyphicon-refresh"></span> permet d'insérer automatiquement dans le champ le dernier
+								identifiant utilisé pour se connecter.
+							</p>
+							<p style="line-height: 2.0">
+								Le bouton <span class="glyphicon glyphicon-trash"></span> permet lors de la prochaine visite d'empêcher l'insertion 
+								<br>automatiquement dans le champ du dernier identifiant utilisé pour se connecter.
+							</p>
+						</font>
+					</div>
+				</div>
+				<br>
+				<br>
+				<font size="5">Identifiant de connexion</font>
+				<input type="text" class="form-control" style="width:70%" id="ConnexionChampId">
+				<br><br>
+				<button type="button" class="btn btn-primary" style="font-size: 2em" onclick="renseignerDernierIdentifiantConnexion()"><span class="glyphicon glyphicon-refresh"></span></button>				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="button" class="btn btn-primary" style="font-size: 2em" onclick="effacerIdConnexionLocalStorageEtIdentifiant()"><span class="glyphicon glyphicon-trash"></span></button>
+				<br>
+				<br>
+				<button type="button" class="btn btn-success" style="font-size: 2em" onclick="connexion()">Se connecter</button>
+			</div>
+		</center>
+	</section>
+	<!-- LISTE D'AMIS -->
+	<section id="ListeAmis">
+		<center>
+			<br>
+			<br>
+			<div style="background-color:#7aaaf4; width:95%; border-color:#000000" class="well">
+				<div class="alert alert-info" style="border-color:#000000">
+					<font size="6">Liste d'amis</font>
+				</div>
+				<br>
+				<img class="img-responsive" src="../Images/logoListeAmis.png" alt="logo" width="100" height="100">
+				<br>
+				<br>
+				<a href="#ajouterAmi" class="btn btn-primary" data-toggle="collapse" style="font-size:2em">Ajouter un ami</a>
+				<div id="ajouterAmi" class="collapse">
+					<br>
+					<br>
+					<font size="5">Adresse e-mail de l'ami</font>
+					<input type="text" class="form-control" style="width:70%" id="ListeAmisChampAdresseMail">
+					<br><br>
+					<button type="button" class="btn btn-success" style="font-size:2em" onclick="ajouterAmi()">Ajouter l'ami</button>
+				</div>
+				<br>
+				<br>
+				<!-- Affichage des amis -->
+				<div id="ListeAmisAffiche"></div>
+			</div>
+		</center>
+	</section>
+	<!-- DISCUSSION -->
+	<section id="Discussion">
+		<center>
+			<br>
+			<br>
+			<div style="background-color:#7aaaf4; width:95%; border-color:#000000" class="well">
+				<div class="alert alert-info" style="border-color:#000000">
+					<font size="6">Discussion</font>
+				</div>
+				<br>
+				<img class="img-responsive" src="../Images/logoDiscussion.png" alt="logo" width="100" height="100">
+				<br>
+				<div align="center" class="alert alert-info" style="border-color:#000000; width:100%">
+					<font size="5" id="nomCorrespondant">Correspondant</font>
+				</div>
+				<!-- Affichage des messages -->
+				<div id="ListeMessagesAffiche"></div>
+				<textarea class="form-control" rows="3" id="zoneTexteDiscussion" style="resize:vertical; border-color:#000000"></textarea>
+				<br><br>
+				<button type="button" style="background-color:#0004ff; font-size:2em" class="btn btn-primary" onclick="envoyerMessage()">Envoyer</button>
+			</div>
+		</center>
+	</section>
+	<!-- A PROPOS -->
+	<section id="APropos">
+		<center>
+			<br>
+			<br>
+			<div style="background-color:#7aaaf4; width:95%; border-color:#000000" class="well">
+				<div class="alert alert-info" style="border-color:#000000">
+					<font size="6">A propos de Télépath</font>
+				</div>
+				<br>
+				<img class="img-responsive" src="../Images/logoLettre.png" alt="logo" width="100" height="100">
+				<br>
+				<div align="justify">
+					<font size="4">
+						<p style="line-height: 2.0">
+							&emsp;&emsp;Avec <strong><i>Télépath</i></strong> vous pouvez discuter avec un correspondant en connectant directement
+							vos esprits&nbsp;!
+						</p>
+						<p style="line-height: 2.0">
+							&emsp;&emsp;Dans <strong><i>Télépath</i></strong><i> les messages sont effacés du système</i> une fois que les deux
+							correspondants les ont <i>lus</i>. Après avoir lu tous les messages il y a donc <strong><i>aucune trace</i></strong>							une fois <strong><i>Télépath</i></strong> fermé&nbsp;!
+							<br>Attention donc à avoir lu tous les messages avant de vous en aller&nbsp;!
+							<br><br>
+							<strong><i>Télépath</i></strong><i> a été créé dans le cadre d'un <strong><i>projet étudiant de Master 1 MIAGE à l'Université des Antilles en 2016 - 2018.</i></strong>
+						</p>
+						<p style="line-height: 2.0">
+							<font size="5"><strong>Reset des discussions :</strong></font><br> Lorsque vous commencez à discuter avec un correspondant tous les
+							messages de la discussion précédente sont effacés.
+							<br><br>
+							<div align="center" class="alert alert-success" style="border-color:#000000; width:100%">
+								<font size="6">A venir dans une prochaine version</font>
+							</div>
+							<br><br>
+							<font size="5"><strong>Export de discussion :</strong></font>
+							<br>Vous pourrez exporter une discussion dans un fichier pour la conserver.
+							<br><br>
+							<font size="5"><strong>Chiffrement des messages :</strong></font>
+							<br>Pour plus de confidentialité, éviter qu'ils puissent être lisibles en cas d'interception.
+							<br><br>Exemple de mot de passe : &lt;&lt; J 'aime manger une pomme rouge au réveil &gt;&gt;
+							<br><br>
+							<font size="5"><strong>Suppression du reset de discussion</strong></font>
+							<br><br>
+							<font size="5"><strong>Suppression d'ami de la liste d 'amis</strong></font>
+						</p>
+					</font>
+				</div>
+				<br>
+				<div align="center">
+					<font size="5"><i>Bonnes discussions&nbsp;! <strong>:)</i></strong>
+					</font>
+					<br><br><br>
+					<div class="alert alert-warning" style="border-color:#000000; width:50%">
+						<font size="6">Auteur : <strong><i>Aymerik ABOSO</i></strong></font>
+					</div>
+				</div>
+			</div>
+		</center>
+	</section>
+</body>
+
+</html>
